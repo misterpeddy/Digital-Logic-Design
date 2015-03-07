@@ -57,6 +57,15 @@ So how does it carry out these two processes?
   4. By setting the set bus to 1, we signal the RAM to goto memory address 00100011 (35) and writes the number 10000110 (134), thereby saving it in memory.
 
 
+###So What is stored on RAM?
+
+So that's how The CPU talks to RAM. But what do these bytes that are being read from and written to RAM _mean_? Well, really anything. Here are some examples:
+  1. Memory address
+  2. Numbers (literally a number. for example the value that a variable could hold)
+  3. A code for a letter (Ever heard of ASCII codes? Each letter or frequently used symbol is represented by a number.)
+  4. Instruction code. An instruction code tells the CPU what to do next. Remember, the CPU doesn't actually know what it's doing. All it does is retrieves instructions and data from RAM, execute whatever the instructions tell it to, and write back the result onto RAM or send it to an external device.
+
+
 
 
 
