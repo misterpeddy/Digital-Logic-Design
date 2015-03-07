@@ -5,7 +5,7 @@
 
 ##Introduction 
 
-We use computers everyday. Yet, not many of us can claim they understand, even on a very high level, how exactly computers operate. Yes we all understand there is a RAM, a CPU and everything is represented as 1's and 0's, but do we really understand what happens from the second you press the "On button" and the moment when your operating system's icon comes on the screen? Well let's dive in!
+We use computers everyday. Yet, not many of us can claim they understand, even on a very high level, how exactly computers operate. Yes we all understand there is a RAM, a CPU and everything is represented as 1's and 0's, but do we really understand what happens from the second you press the "On button" and the moment that your operating system's icon comes on the screen? Well let's dive in!
 
 ##Overview of Computer Architecture
 
@@ -14,11 +14,10 @@ Computers are really not that complicated. Here is the big idea: a **CPU** (Cent
 Remember that by definition, a computer is a universally _programmable_ device, meaning it can model any task that involves logical and arithmetic operations. However, a computer is never "aware" of what it is doing. It must be following a certain program that tells it which operation it must carry out next. **Von Neumann Architecture** refers to a paradigm invented by John von Neumann in 1946 that basically said "why not just store the program that the computer is to run in its own memory?" Seems intuitive right? Well it was a huge discovery at the time! So under this architecture, instructions were written in a specific portion of RAM, where the CPU accessed and read them one by one, and carried out their orders and storing the result back in the RAM. Let's look at each one of these components individually.
 
 ###The CPU
-CPUs are really characterized by their **instruction set** and internal **registers**. An instruction set is really a list of key value pairs mapping numbers (instruction codes called **opcodes**) to abstract operations that the **ALU** (Arithmetic Logic Unit) will compute. These operations could be "load", "add", "subtract", etc. Registers are simple 32-bit (or 64, depenending on the platform structure) storage units that the **control unit** (the guy that does all the thinking) can use to hold values as it is talking to the ALU to carry out a computation. 
+CPUs are really characterized by their **instruction set** and internal **registers**. An instruction set is really a list of key value pairs mapping numbers (instruction codes called **opcodes**) to abstract operations that the **ALU** (Arithmetic Logic Unit) will compute. These operations could be "load", "add", "subtract", etc. Registers are simple 32-bit (or 64, depenending on the platform structure) storage units that the **control unit** (the guy that does all the thinking) can use to hold values as it is talking to the ALU to carry out a computation. For example, the instruction `var_1 = 3 + var_1` would be carried out as follows: the the control unit retrieves the value in var_1 and saves it in some register; it then asks the ALU to add that value to the number 3 and proceeds to store it in some other register; it then goes back and updates the value of var_1 in memory. Simple enough?
 
 Here is a basic picture of a CPU without all the unnecessary detail:
 ![CPU Components](http://upload.wikimedia.org/wikipedia/commons/d/d8/ABasicComputer.gif)
 
 
 ###Memory
-
