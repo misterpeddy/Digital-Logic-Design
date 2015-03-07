@@ -37,7 +37,7 @@ Let's recall, the CPU really needs to be able to do 2 things with the RAM.
 
 So how does it carry out these two processes?
 
-1. Read from location 35 in RAM
+(1) Read from location 35 in RAM
 
 ![cpu-ram-read](https://cloud.githubusercontent.com/assets/8053664/6543275/f42d339e-c4e3-11e4-816f-e6b128a63906.png)
 
@@ -46,8 +46,9 @@ So how does it carry out these two processes?
   2. Load 1 onto the Enable bus
   3. By setting the enable bus, it signals the RAM to go to memory address 00100011 (35) and output whatever 8-bit number is stored there onto the data busses. The CPU can then do whatever with that data it wants (we'll look at this in a little bit).
 
+_Note: the blue busses would be turned on and off by the RAM depending on whatever value it finds at spot 35. The value at that spot doesn't matter so I didn't set any of them.._
 
-2. Write 134 to location 35 in RAM
+(2) Write 134 to location 35 in RAM
 
 ![cpu_ram_write](https://cloud.githubusercontent.com/assets/8053664/6543276/f686d424-c4e3-11e4-943b-0ca74f1e4867.png)
 
