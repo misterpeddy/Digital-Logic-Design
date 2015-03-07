@@ -13,5 +13,12 @@ Computers are really not that complicated. Here is the big idea: a **CPU** (Cent
 
 Remember that by definition, a computer is a universally _programmable_ device, meaning it can model any task that involves logical and arithmetic operations. However, a computer is never "aware" of what it is doing. It must be following a certain program that tells it which operation it must carry out next. **Von Neumann Architecture** refers to a paradigm invented by John von Neumann in 1946 that basically said "why not just store the program that the computer is to run in its own memory?" Seems intuitive right? Well it was a huge discovery at the time! So under this architecture, instructions were written in a specific portion of RAM, where the CPU accessed and read them one by one, and carried out their orders and storing the result back in the RAM. Let's look at each one of these components individually.
 
-  ###The CPU
-CPUs are really characterized by their **instruction set** and internal **registers**. And instruction set is really a list of key value pairs mapping numbers (instruction code called **opcode**) to abstract operations that the **ALU** (Arithmetic Logic Unit) will compute. These operations could be "load", "add", "subtract", etc. Registers are simply one-unit (by unit, I mean it is architecture specific; so on a 32-bit architecture, each register is 32-bits wide) storage places that the **control unit** (the guy that does all the thinking)
+###The CPU
+CPUs are really characterized by their **instruction set** and internal **registers**. An instruction set is really a list of key value pairs mapping numbers (instruction codes called **opcodes**) to abstract operations that the **ALU** (Arithmetic Logic Unit) will compute. These operations could be "load", "add", "subtract", etc. Registers are simple 32-bit (or 64, depenending on the platform structure) storage units that the **control unit** (the guy that does all the thinking) can use to hold values as it is talking to the ALU to carry out a computation. 
+
+Here is a basic picture of a CPU without all the unnecessary detail:
+![CPU Components](http://upload.wikimedia.org/wikipedia/commons/d/d8/ABasicComputer.gif)
+
+
+###Memory
+
