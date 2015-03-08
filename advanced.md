@@ -88,4 +88,60 @@ Whoa... talk about hand-waving.. yes yes I know! You can't actually encode "Disp
 
 So how could all that be encoded in 8 bits? Well it's not. 1) most RAMs have memory slots that exceed our 1-byte model. And 2), many processor follow RISC (Reduced Instruction Set Chip) principles, which basically means each instruction will be _extremely_ simple; but on the other hand, the design is such that each instruction also is carried out _really really_ quickly (think billions per second). 
 
+But in any case, let's run through what the CPU will do as it starts to read 0x28. 
+
+1. Ask the RAM for the value at 0x2f and store it in some internal register
+2. Sets the B input of the ALU to this value and sets the A input of the ALU to the value 0 and gives the ALU the instruction "compare" (obviously encoded as a binary code)
+3. Read the flag the ALU outputs to see whether the two values were equal (the ALU can do one of two things: do some computation and output the result onto the bus, or send a flag directly to the control unit. In the case of a comparison, it sends the flag "equal", or "less than" directly to the control unit)
+4. It then jumps to 2b since the condition was true
+5. Sends the characters "H" and "I" in that order to the monitor through a predefined text-based communication protocal.
+
+Makes sense?
+
+## OK Let's Really Get Down and Dirty
+
+How about a picture?
+
+![cpu-detailed](https://cloud.githubusercontent.com/assets/8053664/6545071/12e140cc-c549-11e4-9c1d-6bee38b48814.png)
+
+Dear lord help us... so many stuffs and things...
+It's OK! You already know half of this stuff; it's just a lot to take in all at once, so let's break it down.
+
+Notice the 8 busses going around and connecting everything. Other than the 4 flags going from the ALU to the controller, they are how these units talk to eachother. So if all these devices are talking through the same medium (the 8 busses) how do their messages not get overwritten by messages from other components? That's where all the E's and S's come into play. They are **set bits** and **enable bits**. The idea is that anytime the control unit wants a register to write on the bus, it sets their set bit to 1, and anytime it wants a register to record whatever value is on the bus, it sets their enable bit to 1. As you can see, certain registers (like Input B of the ALU) don't have an enable bit. This is because that register never has to write on the bus. OK, so let's go through the above 8 steps from the control unit's point of view.
+
+0) Before we start, here are the initial conditions
+  1. Memory address register: 00101000 (0x28)
+  2. that instruction (Read 0x2f) has been loaded onto the Instruction register
+
+1) Ask the RAM for the value at 0x2f and store it in some internal register
+  1. 00101110 (0x2f) is loaded onto the Memory address register.
+  2. The set bit for RAM is turned on.
+  3. The RAM releases the value at that spot onto the busses. The set bit for register 0 is turned on and the value is recorded.
+
+2) Sets the B input of the ALU to this value and sets the A input of the ALU to the value 0 and gives the ALU the instruction "compare" (obviously encoded as a binary code)
+  1. Set Input B's set bit to 1, thereby saving that value in Input B.
+  2. Load value 0 onto the busses (notice how this will directly go into Input A - no turning on a set bit needed).
+  3. Load the code for "compare" onto the Operation register
+  
+3) Read the flag the ALU outputs to see whether the two values were equal (the ALU can do one of two things: do some computation and output the result onto the bus, or send a flag directly to the control unit. In the case of a comparison, it sends the flag "equal", or "less than" directly to the control unit)
+  1. We don't check the result register (we know we are not interested in a "result" because of the type of operation: comparison). Check flag. See that they are equal. 
+  2. Add 1 to instruction address. retrieve the next instruction (by sending it to RAM and retrieving the next memory slot's content). 
+4) It then jumps to 2b since the condition was true
+  1. Realize it is a "jump if equal" instruction. (realize means look up the operation code)
+  2. Check flag previously outputted by ALU. Were they equal? Yes! Jump to specified location. We do this by loading that memory address onto Instruction address, turning on its set bit, and turning on the RAM's and memory address's set bits.
+  3. Load the instruction at that memory spot onto the instruction register. 
+  4. Realize it tells you to retrieve the next two memory slots' content and send them to the monitor.
+5) Sends the characters "H" and "I" in that order to the monitor through a predefined text-based communication protocal.
+  1. Load the address of the monitor port onto a register.
+  2. Send H to that port
+  3. Send I to that port
+  4. retrieve the next instruction and realize it says Halt. Halt!
+
+
+
+### Conclusion
+You have already read enough. So I won't bore you with anymore words. Just going to say that I am super proud that you've stuck through my terrible writing. Hope you found this useful and (who knows) maybe even enjoable :)
+
+Best,
+Pedram
 
