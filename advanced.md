@@ -72,20 +72,24 @@ So now we know how to read/write onto a stick of memory (RAM). How does this all
 
 A program is stored on the RAM in the form of a series of instructions and data.For example, consider the following chunk of memory:
 
-Memory Adress (Hex)|Memory Address (Binary) | Content  |
-|: ------------:|: ------- :|
-|0x28| 00101000| Read 0x2f|
-|0x29| 00101001| Jump to 0x2b if equals 0|
-|0x2a| 00101010| Halt|
-|0x2b| 00101011| Display next 2 characters to monitor|
-|0x2c| 00101100| H|
-|0x2d| 00101101| I|
-|0x2e| 00101101| Halt|
-|0x2f| 00101110| 0|
 
 
-Whoa... talk about hand-waving.. yes yes I know! You can't actually encode "Display next 2 characters to monitor" in 8 bytes. Want to be more rigorous? OK, here is a more low-level version of this what address 0x2b should really say: "Here is the address of the port where you can find the monitor. The following 2 memory slots hold values you should decode using ASCII mapping. Once you decode the letters, send them to the monitor using whatever text-communication-protocol the monitor's driver has defined (found somewhere else in RAM)." 
+|Memory Address (Hex) | Memory Address (Binary) | Content  |
+| -----------------  | ----------------------- | -------- |
+| 0x28 | 00101000 | Read 0x2f |
+| 0x29 | 00101001 | Jump to 0x2b if equals 0 |
+| 0x2a | 00101010 | Halt |
+| 0x2b | 00101011 | Display next 2 characters to monitor |
+| 0x2c | 00101100 | H |
+| 0x2d | 00101101 | I |
+| 0x2e | 00101101 | Halt |
+| 0x2f | 00101110 | 0 |
 
-So how could all that be encoded in 8 bits? Well it's not. 1) most RAMs have memory slots that exceed our 1-byte model. And 2), many processor follow RISC (Reduced Instruction Set Chip) principles, which basically means each instruction will be _extremely_ simple; but on the other hand, the design is such that each instruction also is carried out _really really_ quickly (think billions per second). 
+
+Whoa... talk about hand-waving.. yes yes I know! You can't actually encode "Display next 2 characters to monitor" in 1 byte. Want to be more rigorous? OK, here is a more low-level version of this what address 0x2b should really say: "Here is the address of the port where you can find the monitor. The following 2 memory slots hold values you should decode using ASCII mapping. Once you decode the letters, send them to the monitor using whatever text-communication-protocol the monitor's driver has defined (found somewhere else in RAM)." 
+
+So how could all that be encoded in 8 bits? Well it's not. 1) most RAMs have memory slots that exceed our 1-byte model. And 2) many processor follow RISC (Reduced Instruction Set Chip) principles, which basically means each instruction will be _extremely_ simple; but on the other hand, the design is such that each instruction also is carried out _really really_ quickly (think billions per second). So in fact, 0x2b should be replaced by 3 or 4 instructions. But for our purposes, we will wave our hands and move on :)
+
+
 
 
