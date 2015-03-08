@@ -22,5 +22,7 @@ I owe most of my understanding of (and even more importantly, interest in) compu
 
 [Computer Architecture - A Quantitative Approach](http://www.amazon.com/Computer-Architecture-Fifth-Edition-Quantitative/dp/012383872X)  
 [C++ For You++](http://www.amazon.com/You-Introduction-Programming-Computer-Science/dp/0965485390)
+[But How Do It Know?](http://www.buthowdoitknow.com/)  
+
 
 By the time this guide is finished, it will probably have been edited by Kyle von Bredow; so it is only fair that he should get some credit. Even if he never directly edits the text, some of these very concepts were originally explained to me by him; so he still deserves the credit.
