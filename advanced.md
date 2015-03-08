@@ -3,11 +3,14 @@
 ##Table of Contents
 
 [Overview](#Overview)
+[The Connection Between CPU & RAM](#The Connection Between CPU & RAM)
+[So What is stored on RAM?](#So What is stored on RAM?)
+[Inside the CPU](#Inside the CPU)
+[OK Let's Really Get Down and Dirty](#OK Let's Really Get Down and Dirty)
 
 
 
-
-###Overview
+##Overview
 
 So what exactly does the inside of a CPU look like? Well, we can't really start by looking at a modern CPU because too many optimizations have taken place that make understanding a bit more complicated. But the fundamentals of CPUs have not changed. So let's look at a slightly simpler CPU (I drew it up using Logisim, but a lot of the configurations were inspired by the [Scott CPU](http://www.buthowdoitknow.com)).
 
