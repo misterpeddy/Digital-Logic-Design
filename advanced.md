@@ -156,8 +156,8 @@ Notice the 8 busses going around and connecting everything. Other than the 4 fla
 
 
 ### Conclusion
-You have already read enough. So I won't bore you with anymore words. Just going to say that I am super proud that you've stuck through my terrible writing. Hope you found this useful and (who knows) maybe even enjoable :)
+You have already read enough. So I won't bore you with anymore words. Just going to say that I am super proud that you've stuck through my terrible writing. Hope you found this useful and (who knows) maybe even enjoyable :)
 
-Best,
+Best,  
 Pedram
 
