@@ -12,7 +12,7 @@
 
 ##<a name="overview"></a>Overview
 
-So what exactly does the inside of a CPU look like? Well, we can't really start by looking at a modern CPU because too many optimizations have taken place that make understanding a bit more complicated. But the fundamentals of CPUs have not changed. So let's look at a slightly simpler CPU (I drew it up using Logisim, but a lot of the configurations were inspired by the [Scott CPU](http://www.buthowdoitknow.com)).
+So what exactly does the inside of a CPU look like? Well, we can't really start by looking at a modern CPU because too many optimizations have taken place that make understanding a bit more complicated. But the fundamentals of CPUs have not changed. So let's look at a slightly simpler CPU (I drew it up using Logisim myself, but a lot of the configurations were inspired by the [Scott CPU](http://www.buthowdoitknow.com)).
 
 Here is a rough sketch of the different components you might see on a motherboard:
 
