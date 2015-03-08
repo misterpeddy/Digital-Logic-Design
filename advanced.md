@@ -2,15 +2,15 @@
 
 ##Table of Contents
 
-[Overview](#1234)  
-[The Connection Between CPU & RAM](#connection)
-[So What is stored on RAM?](#So What is stored on RAM?)
-[Inside the CPU](#Inside the CPU)
-[OK Let's Really Get Down and Dirty](#OK Let's Really Get Down and Dirty)
+[Overview](#overview)  
+[The Connection Between CPU & RAM](#connection)  
+[So What is stored on RAM?](#stored)  
+[Inside the CPU](#inside)  
+[OK Let's Really Get Down and Dirty](#down)  
 
 
 
-##Overview
+##<a name="overview"></a>Overview
 
 So what exactly does the inside of a CPU look like? Well, we can't really start by looking at a modern CPU because too many optimizations have taken place that make understanding a bit more complicated. But the fundamentals of CPUs have not changed. So let's look at a slightly simpler CPU (I drew it up using Logisim, but a lot of the configurations were inspired by the [Scott CPU](http://www.buthowdoitknow.com)).
 
@@ -68,7 +68,7 @@ _Note: the blue busses would be turned on and off by the RAM depending on whatev
   4. By setting the set bus to 1, we signal the RAM to goto memory address 00100011 (35) and writes the number 10000110 (134), thereby saving it in memory.
 
 
-##So What is stored on RAM?
+##<a name="stored"></a>So What is stored on RAM?
 
 So that's how The CPU talks to RAM. But what do these bytes that are being read from and written to RAM _mean_? Well, really anything. Here are some examples:
   1. Memory address
@@ -76,7 +76,7 @@ So that's how The CPU talks to RAM. But what do these bytes that are being read 
   3. A code for a letter (Ever heard of ASCII codes? Each letter or frequently used symbol is represented by a number.)
   4. Instruction code. An instruction code tells the CPU what to do next. Remember, the CPU doesn't actually know what it's doing. All it does is retrieves instructions and data from RAM, execute whatever the instructions tell it to, and write back the result onto RAM or send it to an external device.
 
-##Inside the CPU
+##<a name="inside"></a>Inside the CPU
 
 So now we know how to read/write onto a stick of memory (RAM). How does this allow the CPU to do all the incredible things it does? Suprisingly, the answer is very simple. Here is the outline:
 
@@ -112,7 +112,7 @@ But in any case, let's run through what the CPU will do as it starts to read 0x2
 
 Makes sense?
 
-## OK Let's Really Get Down and Dirty
+##<a name="down"></a>OK Let's Really Get Down and Dirty
 
 How about a picture?
 
