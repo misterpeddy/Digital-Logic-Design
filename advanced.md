@@ -7,7 +7,8 @@
 [So What is stored on RAM?](#stored)  
 [Inside the CPU](#inside)  
 [OK Let's Really Get Down and Dirty](#down)  
-
+[Shortcomings](#shortcomings)
+[Conclusion](#conclusion)
 
 
 ##<a name="overview"></a>Overview
@@ -65,13 +66,13 @@ _Note: the blue busses would be turned on and off by the RAM depending on whatev
   1. Load the number 35 (00100011) onto the address busses
   2. Load 134 (10000110) onto the data busses
   3. Load 1 onto the Set bus
-  4. By setting the set bus to 1, we signal the RAM to goto memory address 00100011 (35) and writes the number 10000110 (134), thereby saving it in memory.
+  4. By setting the set bus to 1, we signal the RAM to goto memory address 00100011 (35) and write the number 10000110 (134), thereby saving it in memory.
 
 
 ##<a name="stored"></a>So What is stored on RAM?
 
 So that's how The CPU talks to RAM. But what do these bytes that are being read from and written to RAM _mean_? Well, really anything. Here are some examples:
-  1. Memory address
+  1. Memory address - a way to refer to other spots in memory
   2. Numbers (literally a number. for example the value that a variable could hold)
   3. A code for a letter (Ever heard of ASCII codes? Each letter or frequently used symbol is represented by a number.)
   4. Instruction code. An instruction code tells the CPU what to do next. Remember, the CPU doesn't actually know what it's doing. All it does is retrieves instructions and data from RAM, execute whatever the instructions tell it to, and write back the result onto RAM or send it to an external device.
@@ -154,8 +155,18 @@ Notice the 8 busses going around and connecting everything. Other than the 4 fla
   4. retrieve the next instruction and realize it says Halt. Halt!
 
 
+### <a name="shortcomings"></a> Shortcomings
+Where do I even start? There are so many things I did not talk about. 
+1. How does RAM interpret memory addresses and send back data in that location? (OK I'll answer this one right here.. a configuration consisting of **encoders**, **decoders** and **MUXes**) 
+2. How does the ALU do all these operations (a configuration consisting of comparators, adders, multipliers, etc.)
+3. Is there all that is to a CPU? (HA! No... If modern CPUs were that simple you wouldn't be able to stream House of Cards HD from Netflix while "working on your paper."
+4. We didn't talk about different Cache types (L1 data & instruction caches, L2 ITLB, DTLB, unified caches.. the list goes on)
+5. We didn't talk about floating point registers, instruction decoders, multi-core CPUs and etc.
 
-### Conclusion
+I realize this list is effectively endless. My reason behind mentioning it was simply to leave you hungry for more and give you a couple gateways for more reasearch. 
+
+
+### <a name="conclusion"></a>Conclusion
 You have already read enough. So I won't bore you with anymore words. Just going to say that I am super proud that you've stuck through my terrible writing. Hope you found this useful and (who knows) maybe even enjoyable :)
 
 Best,  
