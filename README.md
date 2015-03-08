@@ -14,4 +14,4 @@ Here are two different discussions of computers. The first is for those who have
 The second discussion is where we actually get down and design a processor together!!! So, if you're actually trying to learn how these magical little devices work, you should definitely read the second discussion as well. Regardless of your starting point, let's get started!
 
 ###[For Beginners](/beginner.md)
-###[For the Hungry!!](/advanced.md)
+###[For The Hungry](/advanced.md)
