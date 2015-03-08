@@ -4,7 +4,7 @@
 
 So what exactly does the inside of a CPU look like? Well, we can't really start by looking at a modern CPU because too many optimizations have taken place that make understanding a bit more complicated. But the fundamentals of CPUs have not changed. So let's look at a slightly simpler CPU (I drew it up using Logisim, but a lot of the configurations were inspired by the [Scott CPU](http://www.buthowdoitknow.com)).
 
-Here is a rough sketch of the different components you might see in a CPU:
+Here is a rough sketch of the different components you might see on a motherboard:
 
 ![Components of a CPU](https://cloud.githubusercontent.com/assets/8053664/6542856/fdcac9ac-c4d4-11e4-8545-ee5b42709298.png)
 
@@ -57,7 +57,7 @@ So how does it carry out these two processes?
   4. By setting the set bus to 1, we signal the RAM to goto memory address 00100011 (35) and writes the number 10000110 (134), thereby saving it in memory.
 
 
-###So What is stored on RAM?
+##So What is stored on RAM?
 
 So that's how The CPU talks to RAM. But what do these bytes that are being read from and written to RAM _mean_? Well, really anything. Here are some examples:
   1. Memory address
@@ -65,8 +65,26 @@ So that's how The CPU talks to RAM. But what do these bytes that are being read 
   3. A code for a letter (Ever heard of ASCII codes? Each letter or frequently used symbol is represented by a number.)
   4. Instruction code. An instruction code tells the CPU what to do next. Remember, the CPU doesn't actually know what it's doing. All it does is retrieves instructions and data from RAM, execute whatever the instructions tell it to, and write back the result onto RAM or send it to an external device.
 
+##Inside the CPU
+
+So now we know how to read/write onto a stick of memory (RAM). How does this allow the CPU to do all the incredible things it does? Suprisingly, the answer is very simple. Here is the outline:
+
+A program is stored on the RAM in the form of a series of instructions and data.For example, consider the following chunk of memory:
+
+Memory Adress (Hex)|Memory Address (Binary) | Content  |
+|: ------------:|: ------- :|
+|0x28| 00101000| Read 0x2f|
+|0x29| 00101001| Jump to 0x2b if equals 0|
+|0x2a| 00101010| Halt|
+|0x2b| 00101011| Display next 2 characters to monitor|
+|0x2c| 00101100| H|
+|0x2d| 00101101| I|
+|0x2e| 00101101| Halt|
+|0x2f| 00101110| 0|
 
 
+Whoa... talk about hand-waving.. yes yes I know! You can't actually encode "Display next 2 characters to monitor" in 8 bytes. Want to be more rigorous? OK, here is a more low-level version of this what address 0x2b should really say: "Here is the address of the port where you can find the monitor. The following 2 memory slots hold values you should decode using ASCII mapping. Once you decode the letters, send them to the monitor using whatever text-communication-protocol the monitor's driver has defined (found somewhere else in RAM)." 
+
+So how could all that be encoded in 8 bits? Well it's not. 1) most RAMs have memory slots that exceed our 1-byte model. And 2), many processor follow RISC (Reduced Instruction Set Chip) principles, which basically means each instruction will be _extremely_ simple; but on the other hand, the design is such that each instruction also is carried out _really really_ quickly (think billions per second). 
 
 
- 
