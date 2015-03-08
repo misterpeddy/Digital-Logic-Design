@@ -2,8 +2,8 @@
 
 ##Table of Contents
 
-[Overview](#Overview)
-[The Connection Between CPU & RAM](#The Connection Between CPU & RAM)
+[Overview](#1234)  
+[The Connection Between CPU & RAM](#connection)
 [So What is stored on RAM?](#So What is stored on RAM?)
 [Inside the CPU](#Inside the CPU)
 [OK Let's Really Get Down and Dirty](#OK Let's Really Get Down and Dirty)
@@ -28,7 +28,7 @@ Whoa! OK.. so things are getting complicated and you're starting to remember why
 These wires are the **busses** we talked about. They transfer information (bits) between two components. It's important to keep in mind that they carry _digital_ signals. I.e. at any given instant, there is either electrical current flowing through a bus or not. This construction allows the different components to communicate using numbers (in our example the numbers can range from 0 to 2^8 -1). Let's look at the communication between the CPU and RAM first.
 
 
-##The Connection Between CPU & RAM
+##<a name="connection"></a>The Connection Between CPU & RAM
 
 Notice how there are three sets of busses going from the CPU to the RAM
 
