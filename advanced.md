@@ -1,4 +1,4 @@
-##So Let's get to Designing a CPU
+##So Let's get to Designing a Processor
 
 ##Table of Contents
 
