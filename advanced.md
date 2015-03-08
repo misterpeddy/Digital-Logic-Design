@@ -7,8 +7,8 @@
 [So What is stored on RAM?](#stored)  
 [Inside the CPU](#inside)  
 [OK Let's Really Get Down and Dirty](#down)  
-[Shortcomings](#shortcomings)
-[Conclusion](#conclusion)
+[Shortcomings](#shortcomings)  
+[Conclusion](#conclusion)  
 
 
 ##<a name="overview"></a>Overview
@@ -157,13 +157,14 @@ Notice the 8 busses going around and connecting everything. Other than the 4 fla
 
 ### <a name="shortcomings"></a> Shortcomings
 Where do I even start? There are so many things I did not talk about. 
+
 1. How does RAM interpret memory addresses and send back data in that location? (OK I'll answer this one right here.. a configuration consisting of **encoders**, **decoders** and **MUXes**) 
 2. How does the ALU do all these operations (a configuration consisting of comparators, adders, multipliers, etc.)
-3. Is there all that is to a CPU? (HA! No... If modern CPUs were that simple you wouldn't be able to stream House of Cards HD from Netflix while "working on your paper."
+3. Is there all that is to a CPU? (HA! No... If modern CPUs were that simple you wouldn't be able to stream House of Cards HD from Netflix while "working on your paper.")
 4. We didn't talk about different Cache types (L1 data & instruction caches, L2 ITLB, DTLB, unified caches.. the list goes on)
 5. We didn't talk about floating point registers, instruction decoders, multi-core CPUs and etc.
 
-I realize this list is effectively endless. My reason behind mentioning it was simply to leave you hungry for more and give you a couple gateways for more reasearch. 
+I realize this list is effectively endless. My reason behind mentioning it was simply to leave you hungry for more and give you a couple gateways/keywords for more reasearch. 
 
 
 ### <a name="conclusion"></a>Conclusion
