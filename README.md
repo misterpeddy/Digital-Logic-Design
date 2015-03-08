@@ -11,7 +11,7 @@ We use computers everyday. Yet, not many of us can claim they understand, even o
 
 Here are two different discussions of computers. The first is for those who have very little formal understanding of computers. If you're not comfortable being thrown into reading sentences with words like _ALU_ and _ROM_, then you might find it easier to start here.
 
-The second discussion is where we actually get down and design a CPU together!!! So, if you're actually trying to learn how these magical little devices work, you should definitely read the second discussion as well. Regardless of your starting point, let's get started!
+The second discussion is where we actually get down and design a processor together!!! So, if you're actually trying to learn how these magical little devices work, you should definitely read the second discussion as well. Regardless of your starting point, let's get started!
 
 ###[For Beginners](/beginner.md)
 ###[For the Hungry!!](/advanced.md)
