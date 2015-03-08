@@ -1,5 +1,12 @@
 ##So Let's get to Designing a CPU
 
+##Table of Contents
+
+[Overview](#Overview)
+
+
+
+
 ###Overview
 
 So what exactly does the inside of a CPU look like? Well, we can't really start by looking at a modern CPU because too many optimizations have taken place that make understanding a bit more complicated. But the fundamentals of CPUs have not changed. So let's look at a slightly simpler CPU (I drew it up using Logisim, but a lot of the configurations were inspired by the [Scott CPU](http://www.buthowdoitknow.com)).
@@ -130,11 +137,13 @@ Notice the 8 busses going around and connecting everything. Other than the 4 fla
 3) Read the flag the ALU outputs to see whether the two values were equal (the ALU can do one of two things: do some computation and output the result onto the bus, or send a flag directly to the control unit. In the case of a comparison, it sends the flag "equal", or "less than" directly to the control unit)
   1. We don't check the result register (we know we are not interested in a "result" because of the type of operation: comparison). Check flag. See that they are equal. 
   2. Add 1 to instruction address. retrieve the next instruction (by sending it to RAM and retrieving the next memory slot's content). 
+  
 4) It then jumps to 2b since the condition was true
   1. Realize it is a "jump if equal" instruction. (realize means look up the operation code)
   2. Check flag previously outputted by ALU. Were they equal? Yes! Jump to specified location. We do this by loading that memory address onto Instruction address, turning on its set bit, and turning on the RAM's and memory address's set bits.
   3. Load the instruction at that memory spot onto the instruction register. 
   4. Realize it tells you to retrieve the next two memory slots' content and send them to the monitor.
+
 5) Sends the characters "H" and "I" in that order to the monitor through a predefined text-based communication protocal.
   1. Load the address of the monitor port onto a register.
   2. Send H to that port
