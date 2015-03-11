@@ -13,7 +13,7 @@
 
 ##<a name="overview"></a>Overview
 
-So what exactly does the inside of a CPU look like? Well, we can't really start by looking at a modern CPU because too many optimizations have taken place that make understanding a bit more complicated. But the fundamentals of CPUs have not changed. So let's look at a slightly simpler CPU (I drew it up using Logisim myself, but a lot of the configurations were inspired by the [Scott CPU](http://www.buthowdoitknow.com)).
+So what exactly does the inside of a CPU look like? Well, we can't really start by looking at a modern CPU because too many optimizations have taken place that make understanding it a bit more complicated. But the fundamentals of CPUs have not changed. So let's look at a slightly simpler CPU (I drew it up using Logisim myself, but a lot of the configurations were inspired by the [Scott CPU](http://www.buthowdoitknow.com)).
 
 Here is a rough sketch of the different components you might see on a motherboard:
 
@@ -103,7 +103,7 @@ So how could all that be encoded in 8 bits? Well it's not. 1) most RAMs have mem
 
 
 
-But in any case, let's run through what the CPU will do as it starts to read 0x28. 
+But in any case, let's run through what the **control unit** will do as it starts to read 0x28. 
 
 1. Ask the RAM for the value at 0x2f and store it in some internal register
 2. Sets the B input of the ALU to this value and sets the A input of the ALU to the value 0 and gives the ALU the instruction "compare" (obviously encoded as a binary code)
@@ -122,11 +122,11 @@ How about a picture?
 Dear lord help us... so many stuffs and things...
 It's OK! You already know half of this stuff; it's just a lot to take in all at once, so let's break it down.
 
-Notice the 8 busses going around and connecting everything. Other than the 4 flags going from the ALU to the controller, they are how these units talk to eachother. So if all these devices are talking through the same medium (the 8 busses) how do their messages not get overwritten by messages from other components? That's where all the E's and S's come into play. They are **set bits** and **enable bits**. The idea is that anytime the control unit wants a register to write on the bus, it sets their set bit to 1, and anytime it wants a register to record whatever value is on the bus, it sets their enable bit to 1. As you can see, certain registers (like Input B of the ALU) don't have an enable bit. This is because that register never has to write on the bus. OK, so let's go through the above 8 steps from the control unit's point of view.
+Notice the 8 busses going around and connecting everything; this is how all these units talk to eachother. So if all these devices are talking through the same medium (the 8 busses) how do their messages not get overwritten by messages from other components? That's where all the E's and S's come into play. They are **set bits** and **enable bits**. The idea is that anytime the control unit wants a register to write on the bus, it sets their set bit to 1, and anytime it wants a register to record whatever value is on the bus, it sets their enable bit to 1. As you can see, certain registers (like Input B of the ALU) don't have an enable bit. This is because that register never has to write on the bus. OK, so let's go through the above 8 steps from the control unit's point of view.
 
 0) Before we start, here are the initial conditions
   1. Memory address register: 00101000 (0x28)
-  2. that instruction (Read 0x2f) has been loaded onto the Instruction register
+  2. The instruction at 0x28 (Read 0x2f) has been loaded onto the Instruction register
 
 1) Ask the RAM for the value at 0x2f and store it in some internal register
   1. 00101110 (0x2f) is loaded onto the Memory address register.
