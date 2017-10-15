@@ -5,7 +5,7 @@
 
 
 
-##Introduction 
+## Introduction 
 
 We use computers everyday. Yet, not many of us can claim they understand, even on a very high level, how exactly computers operate. Yes we all understand there is a RAM, a CPU and everything is represented as 1's and 0's, but do we really understand what happens from the second you press the "On button" and the moment that your operating system's icon comes on the screen? Well let's dive in!
 
@@ -13,8 +13,8 @@ Here are two different discussions of computers. The first is for those who have
 
 The second discussion is where we actually get down and design a processor together!!! So, if you're actually trying to learn how these magical little devices work, you should definitely read the second discussion as well. Regardless of your starting point, let's get started!
 
-###[For Beginners](/beginner.md)
-###[For The Hungry](/advanced.md)
+### [For Beginners](/beginner.md)
+### [For The Hungry](/advanced.md)
 
 
 ## Credits
