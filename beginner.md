@@ -1,10 +1,10 @@
-##Overview of Computer Architecture
+## Overview of Computer Architecture
 
 Computers are really not that complicated. Here is the big idea: a **CPU** (Central Processing Unit) reads bits of data from **memory**, performs calcuations or logical operations, and writes the resulting data back into memory. That's literally it. There are sometimes other devices called **peripheral devices** that provide input and output and secondary mass storage. To give you an idea of how fast processors are, Intel's "ancient" Pentium microprocessor can run at over 300 **MIPS** (million instructions per second). In the late 1990's computers had about a maximum of 64 "Megs of **RAM**" (Megabytes, millions of bytes, of Random-Access-Memory) packed in a few SIMMs (Single In-Line Memory Modules). By now, as technology has progressed, the price of RAM has dropped and computers are equipped with Gigabytes of RAM.
 
 Remember that by definition, a computer is a universally _programmable_ device, meaning it can model any task that involves logical and arithmetic operations. However, a computer is never "aware" of what it is doing. It must be following a certain program that tells it which operation it must carry out next. **Von Neumann Architecture** refers to a paradigm invented by John von Neumann in 1946 that basically said "why not just store the program that the computer is to run in its own memory?" Seems intuitive right? Well it was a huge discovery at the time! So under this architecture, instructions were written in a specific portion of RAM, where the CPU accesses and reads them one by one, carries out their orders and stores the result back in the RAM. Let's look at each one of these components individually.
 
-###The CPU
+### The CPU
 Here is a basic picture of a CPU without all the unnecessary detail:
 ![CPU Components](http://upload.wikimedia.org/wikipedia/commons/d/d8/ABasicComputer.gif)
 
@@ -14,7 +14,7 @@ Some CPUs can interpret hundreds or even thousands of different instructions. Bu
 
 So how does the CPU (and more specifically the control unit) communicate with everyone? Through parallel lines called **buses**. A CPU really needs to be able to carry **_memory addresses_** and **_data bits_**. Not surprisingly, there are two different types of buses: **data bus** and **address bus**. Another thing that determines the overall speed of the computer is the width (how many bits wide they are) and speed of the buses. All the lines in the above diagram more or less represent buses connecting the different components to one another.
 
-###Memory
+### Memory
 Computer memory is really a 1-dimensional array of **bits**, arranged in groups of 8, called **bytes**. Each byte is given a unique address that the CPU can use to access it. The cool thing about memory is that CPU does not have to read or write memory bytes sequentially; bytes can be accessed in any arbitary sequence, hence the name **_Random Access Memory_**. One thing to keep in mind is that RAM is volatile; this means that every time we turn off the computer, the RAM is wiped clean. This is why there is another kind of memory that is permanent and non-erasable (or at least it is in principle). This is called **read-only memory** or **ROM**. Here is where we can store the initialization code that boots up the operating system everytime we turn on the computer. So basically, when you turn on your computer, the CPU starts writing the initialization code or **boot record** from the ROM onto the RAM. The ROM **BIOS** (Basic Input Output System), whose job is to take control of the keyboard, display, etc. is also run at this stage. Then once BIOS has finished running and everything necassary for starting the operating system has properly been loaded onto RAM, the control unit allows the operating system to start executing its instructions. Kind of cool eh?
 
 
