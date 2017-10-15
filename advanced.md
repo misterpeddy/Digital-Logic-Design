@@ -1,6 +1,6 @@
-##So Let's get to Designing a Processor
+## So Let's get to Designing a Processor
 
-##Table of Contents
+## Table of Contents
 
 [Overview](#overview)  
 [The Connection Between CPU & RAM](#connection)  
@@ -11,7 +11,7 @@
 [Conclusion](#conclusion)  
 
 
-##<a name="overview"></a>Overview
+## <a name="overview"></a>Overview
 
 So what exactly does the inside of a CPU look like? Well, we can't really start by looking at a modern CPU because too many optimizations have taken place that make understanding it a bit more complicated. But the fundamentals of CPUs have not changed. So let's look at a slightly simpler CPU (I drew it up using Logisim myself, but a lot of the configurations were inspired by the [Scott CPU](http://www.buthowdoitknow.com)).
 
@@ -29,7 +29,7 @@ Whoa! OK.. so things are getting complicated and you're starting to remember why
 These wires are the **busses** we talked about. They transfer information (bits) between two components. It's important to keep in mind that they carry _digital_ signals. I.e. at any given instant, there is either electrical current flowing through a bus or not. This construction allows the different components to communicate using numbers (in our example the numbers can range from 0 to 2^8 -1). Let's look at the communication between the CPU and RAM first.
 
 
-##<a name="connection"></a>The Connection Between CPU & RAM
+## <a name="connection"></a>The Connection Between CPU & RAM
 
 Notice how there are three sets of busses going from the CPU to the RAM
 
@@ -69,7 +69,7 @@ _Note: the blue busses would be turned on and off by the RAM depending on whatev
   4. By setting the set bus to 1, we signal the RAM to goto memory address 00100011 (35) and write the number 10000110 (134), thereby saving it in memory.
 
 
-##<a name="stored"></a>So What is stored on RAM?
+## <a name="stored"></a>So What is stored on RAM?
 
 So that's how The CPU talks to RAM. But what do these bytes that are being read from and written to RAM _mean_? Well, really anything. Here are some examples:
   1. Memory address - a way to refer to other spots in memory
@@ -77,7 +77,7 @@ So that's how The CPU talks to RAM. But what do these bytes that are being read 
   3. A code for a letter (Ever heard of ASCII codes? Each letter or frequently used symbol is represented by a number.)
   4. Instruction code. An instruction code tells the CPU what to do next. Remember, the CPU doesn't actually know what it's doing. All it does is retrieves instructions and data from RAM, execute whatever the instructions tell it to, and write back the result onto RAM or send it to an external device.
 
-##<a name="inside"></a>Inside the CPU
+## <a name="inside"></a>Inside the CPU
 
 So now we know how to read/write onto a stick of memory (RAM). How does this allow the CPU to do all the incredible things it does? Suprisingly, the answer is very simple. Here is the outline:
 
@@ -113,7 +113,7 @@ But in any case, let's run through what the **control unit** will do as it start
 
 Makes sense?
 
-##<a name="down"></a>OK Let's Really Get Down and Dirty
+## <a name="down"></a>OK Let's Really Get Down and Dirty
 
 How about a picture?
 
